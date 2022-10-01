@@ -24,6 +24,9 @@ extension Splash {
                 Logger.shared.addLog(message: "Connected to network. App should be start")
             } else {
                 Logger.shared.addLog(message: "No Connection. Notify the user.")
+                self.showNativeAlertWith(message: "No Internet Connection. Connection is necessary. App will close.", action: UIAlertAction(title: "Tamam", style: .destructive, handler: { (action) in
+                    exit(-1)
+                }))
             }
         }
     }
