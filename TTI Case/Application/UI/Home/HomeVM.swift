@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HomeTabEnums {
+enum HomeTabEnums: CaseIterable {
     case new
     case hot
     case random

@@ -3,13 +3,14 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="TTI_Case" customModuleProvider="target">
             <connections>
+                <outlet property="tabsCollectionView" destination="ZtQ-5h-JXL" id="KmC-pL-e0a"/>
                 <outlet property="view" destination="iN0-l3-epB" id="12X-3m-qSo"/>
             </connections>
         </placeholder>
@@ -18,25 +19,47 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVe-AG-6jH">
-                    <rect key="frame" x="173.66666666666666" y="411.66666666666669" width="43" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mZz-GS-eo6">
+                    <rect key="frame" x="0.0" y="47" width="390" height="763"/>
+                    <subviews>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="390" placeholderIntrinsicHeight="110" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ZtQ-5h-JXL">
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="40"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="CH9-NW-Lcx"/>
+                            </constraints>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TgM-IE-00A">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="Uvw-Ft-1Zr"/>
+                                <outlet property="delegate" destination="-1" id="7vh-rp-fm6"/>
+                            </connections>
+                        </collectionView>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dOi-hw-ZBi">
+                            <rect key="frame" x="0.0" y="40" width="390" height="723"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="SoftPrimary"/>
             <constraints>
-                <constraint firstItem="gVe-AG-6jH" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hMs-zZ-XM0"/>
-                <constraint firstItem="gVe-AG-6jH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="uK7-Bc-aJ8"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="mZz-GS-eo6" secondAttribute="bottom" id="CTd-1W-w1f"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="mZz-GS-eo6" secondAttribute="trailing" id="Uht-W6-CKg"/>
+                <constraint firstItem="mZz-GS-eo6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dwR-fD-J0W"/>
+                <constraint firstItem="mZz-GS-eo6" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="mx6-oK-sMl"/>
             </constraints>
             <point key="canvasLocation" x="82" y="21"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="SoftPrimary">
+            <color red="0.054901960784313725" green="0.078431372549019607" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
