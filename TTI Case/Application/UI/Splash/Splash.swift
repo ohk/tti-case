@@ -6,3 +6,25 @@
 //
 
 import Foundation
+import UIKit
+
+class Splash: UIViewController {
+    
+    override func viewDidLoad() {
+        checkConnection()
+    }
+    
+    
+}
+// MARK: Functions
+extension Splash {
+    func checkConnection(){
+        DispatchQueue.main.async{
+            if NetworkMonitor.shared.isConnected {
+                Logger.shared.addLog(message: "Connected to network. App should be start")
+            } else {
+                Logger.shared.addLog(message: "No Connection. Notify the user.")
+            }
+        }
+    }
+}
