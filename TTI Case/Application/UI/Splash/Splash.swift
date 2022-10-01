@@ -26,6 +26,7 @@ extension Splash {
             
             if NetworkMonitor.shared.isConnected {
                 Logger.shared.addLog(message: "Connected to network. App should be start")
+                self.startApp()
             } else {
                 Logger.shared.addLog(message: "No Connection. Notify the user.")
                 self.showNativeAlertWith(message: "No Internet Connection. Connection is necessary. App will close.", action: UIAlertAction(title: "Tamam", style: .destructive, handler: { (action) in
@@ -38,10 +39,11 @@ extension Splash {
     private func animateGradient() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            // create the gradient layer
+            
             self.gradient.frame = self.view.frame
             self.gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
             self.gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+            
             self.gradient.colors = [
                 UIColor.white.cgColor,
                 UIColor(named: "SoftPrimary")?.cgColor ?? UIColor.white.cgColor,
@@ -71,5 +73,12 @@ extension Splash {
             self.gradient.add(animation, forKey: nil)
             self.view.layer.insertSublayer(self.gradient, at: 0)
         }
+    }
+    
+    func startApp() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: { [weak self] in
+            guard let self = self else { return }
+            self.navigateTo(vc: .Home)
+        })
     }
 }

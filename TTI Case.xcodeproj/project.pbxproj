@@ -13,11 +13,12 @@
 		C2D89A4F28E7A60300B1E41F /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2D89A4E28E7A60300B1E41F /* Splash.storyboard */; };
 		C2D89A5128E7A60C00B1E41F /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D89A5028E7A60C00B1E41F /* Splash.swift */; };
 		C2D89A5428E7A61E00B1E41F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D89A5328E7A61E00B1E41F /* HomeVC.swift */; };
-		C2D89A5628E7A62B00B1E41F /* HomeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2D89A5528E7A62B00B1E41F /* HomeVC.storyboard */; };
 		C2D89A5828E7A86B00B1E41F /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D89A5728E7A86B00B1E41F /* HomeVM.swift */; };
 		C2D89A5B28E7A93C00B1E41F /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D89A5A28E7A93C00B1E41F /* NetworkMonitor.swift */; };
 		C2D89A6028E7AA6100B1E41F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D89A5F28E7AA6100B1E41F /* Logger.swift */; };
 		C2D89A6228E7E7B800B1E41F /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D89A6128E7E7B800B1E41F /* UIViewController+Ext.swift */; };
+		C2D89A6428E7EC4E00B1E41F /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D89A6328E7EC4E00B1E41F /* HomeVC.xib */; };
+		C2D89A6628E7ECAC00B1E41F /* NavigationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D89A6528E7ECAC00B1E41F /* NavigationHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,11 +30,12 @@
 		C2D89A4E28E7A60300B1E41F /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		C2D89A5028E7A60C00B1E41F /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		C2D89A5328E7A61E00B1E41F /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		C2D89A5528E7A62B00B1E41F /* HomeVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeVC.storyboard; sourceTree = "<group>"; };
 		C2D89A5728E7A86B00B1E41F /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		C2D89A5A28E7A93C00B1E41F /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		C2D89A5F28E7AA6100B1E41F /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		C2D89A6128E7E7B800B1E41F /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		C2D89A6328E7EC4E00B1E41F /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
+		C2D89A6528E7ECAC00B1E41F /* NavigationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				C2D89A5328E7A61E00B1E41F /* HomeVC.swift */,
-				C2D89A5528E7A62B00B1E41F /* HomeVC.storyboard */,
+				C2D89A6328E7EC4E00B1E41F /* HomeVC.xib */,
 				C2D89A5728E7A86B00B1E41F /* HomeVM.swift */,
 			);
 			path = Home;
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				C2D89A6128E7E7B800B1E41F /* UIViewController+Ext.swift */,
+				C2D89A6528E7ECAC00B1E41F /* NavigationHandler.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -212,8 +215,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2D89A5628E7A62B00B1E41F /* HomeVC.storyboard in Resources */,
 				C2D89A3E28E7A59700B1E41F /* Assets.xcassets in Resources */,
+				C2D89A6428E7EC4E00B1E41F /* HomeVC.xib in Resources */,
 				C2D89A4F28E7A60300B1E41F /* Splash.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +234,7 @@
 				C2D89A5128E7A60C00B1E41F /* Splash.swift in Sources */,
 				C2D89A6028E7AA6100B1E41F /* Logger.swift in Sources */,
 				C2D89A5428E7A61E00B1E41F /* HomeVC.swift in Sources */,
+				C2D89A6628E7ECAC00B1E41F /* NavigationHandler.swift in Sources */,
 				C2D89A6228E7E7B800B1E41F /* UIViewController+Ext.swift in Sources */,
 				C2D89A3728E7A59500B1E41F /* SceneDelegate.swift in Sources */,
 			);

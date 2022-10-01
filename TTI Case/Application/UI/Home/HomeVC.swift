@@ -6,3 +6,18 @@
 //
 
 import Foundation
+import UIKit
+
+class HomeVC: UIViewController {
+    let viewModel = HomeVM()
+    
+    override func viewDidLoad() {
+        viewModel.delegate = self
+    }
+}
+
+extension HomeVC: HomeVMDelegate {
+    func updateData() {
+        
+    }
+}
