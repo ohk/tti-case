@@ -54,5 +54,8 @@ class HomeVM {
 
 // MARK: Functions
 extension HomeVM {
-    
+    func selectTab(item: HomeTabEnums) {
+        self.tab = item
+        delegate?.updateData()
+    }
 }

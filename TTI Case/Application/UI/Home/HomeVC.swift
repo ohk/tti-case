@@ -46,10 +46,14 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.selectTab(item: HomeTabEnums.allCases[indexPath.row] )
+    }
 }
 
 extension HomeVC: HomeVMDelegate {
     func updateData() {
-        
+        tabsCollectionView.reloadData()
     }
 }
