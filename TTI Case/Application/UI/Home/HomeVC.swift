@@ -36,7 +36,8 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         guard let tabCell: HomeTabCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeTabCell.reuseIdentifier, for: indexPath) as? HomeTabCell else {
             return UICollectionViewCell()
         }
-        tabCell.configure(labelString: HomeTabEnums.allCases[indexPath.row].tabName)
+        let tabName = HomeTabEnums.allCases[indexPath.row].tabName
+        tabCell.configure(labelString: tabName, isSelected: viewModel.tab.tabName == tabName)
         tabCell.contentView.frame = tabCell.bounds;
         tabCell.contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         return tabCell
