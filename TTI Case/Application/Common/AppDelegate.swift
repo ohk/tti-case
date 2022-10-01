@@ -13,7 +13,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        /**
+         * Start the network monitor for checking the connection.
+         */
+        NetworkMonitor.shared.startMonitoring()
+
         return true
     }
 
