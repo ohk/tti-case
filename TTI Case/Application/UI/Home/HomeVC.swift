@@ -22,6 +22,12 @@ class HomeVC: UIViewController {
         }
     }
     
+    @IBOutlet weak var rowsTableView: UITableView! {
+        didSet {
+            rowsTableView.register(HomeRow.nib, forCellReuseIdentifier: HomeRow.reuseIdentifier)
+        }
+    }
+    
     override func viewDidLoad() {
         viewModel.delegate = self
     }
@@ -52,8 +58,24 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
 }
 
+extension HomeVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let tabPath = viewModel.tab.tabPath
+        return viewModel.data[tabPath]?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let tabPath = viewModel.tab.tabPath
+        guard let data = viewModel.data[tabPath]?[indexPath.row] else { return UITableViewCell() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: HomeRow.reuseIdentifier) as! HomeRow
+        cell.configure(data: data.childrenData)
+        return cell
+    }
+}
+
 extension HomeVC: HomeVMDelegate {
     func updateData() {
         tabsCollectionView.reloadData()
+        rowsTableView.reloadData()
     }
 }

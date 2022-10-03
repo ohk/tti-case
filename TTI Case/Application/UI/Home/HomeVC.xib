@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="TTI_Case" customModuleProvider="target">
             <connections>
+                <outlet property="rowsTableView" destination="dOi-hw-ZBi" id="bth-iq-7Hi"/>
                 <outlet property="tabsCollectionView" destination="ZtQ-5h-JXL" id="KmC-pL-e0a"/>
                 <outlet property="view" destination="iN0-l3-epB" id="12X-3m-qSo"/>
             </connections>
@@ -19,11 +20,11 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mZz-GS-eo6">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mZz-GS-eo6">
                     <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="390" placeholderIntrinsicHeight="110" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ZtQ-5h-JXL">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="40"/>
+                            <rect key="frame" x="20" y="0.0" width="350" height="40"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="CH9-NW-Lcx"/>
@@ -39,11 +40,24 @@
                                 <outlet property="delegate" destination="-1" id="7vh-rp-fm6"/>
                             </connections>
                         </collectionView>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dOi-hw-ZBi">
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dOi-hw-ZBi">
                             <rect key="frame" x="0.0" y="40" width="390" height="723"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="5aP-sx-9Jj"/>
+                                <outlet property="delegate" destination="-1" id="lnX-s0-YL0"/>
+                            </connections>
                         </tableView>
                     </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="dOi-hw-ZBi" firstAttribute="leading" secondItem="mZz-GS-eo6" secondAttribute="leading" id="Faz-tI-6id"/>
+                        <constraint firstAttribute="trailing" secondItem="dOi-hw-ZBi" secondAttribute="trailing" id="W1h-CF-PHS"/>
+                        <constraint firstAttribute="trailing" secondItem="ZtQ-5h-JXL" secondAttribute="trailing" constant="20" id="iLj-JF-Mca"/>
+                        <constraint firstItem="ZtQ-5h-JXL" firstAttribute="leading" secondItem="mZz-GS-eo6" secondAttribute="leading" constant="20" id="zqo-gY-hDU"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
