@@ -20,11 +20,11 @@ class RequestHandler {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
                 ApplicationLoader.shared.dismiss()
             })
-            Logger.shared.addLog(message: "\n\n\n\n\n\n\n")
-            debugPrint(response)
+            
             guard let response = response.value else {
                 return
             }
+            
             completion(response)
         }
     }

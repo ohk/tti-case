@@ -82,7 +82,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row + 10 >= count{
             viewModel.getData()
         }
-        Logger.shared.addLog(message: "Tab Path: \(tabPath) - Count: \(count) - Row: \(indexPath.row)")
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
