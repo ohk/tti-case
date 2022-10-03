@@ -33,6 +33,7 @@ class HomeVC: UIViewController {
     }
 }
 
+// MARK: CollectionView
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return HomeTabEnums.allCases.count
@@ -59,6 +60,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
 }
 
+// MARK: TableView
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let tabPath = viewModel.tab.tabPath
@@ -70,6 +72,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         guard let data = viewModel.data[tabPath]?[indexPath.row] else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeRow.reuseIdentifier) as! HomeRow
         cell.configure(data: data.childrenData)
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -81,8 +84,15 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         }
         Logger.shared.addLog(message: "Tab Path: \(tabPath) - Count: \(count) - Row: \(indexPath.row)")
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tabPath = viewModel.tab.tabPath
+        guard let data = viewModel.data[tabPath]?[indexPath.row]?.childrenData?.permalink else { return }
+        navigateTo(vc: .Comment,externalData: data)
+    }
 }
 
+// MARK: Delegate Function
 extension HomeVC: HomeVMDelegate {
     func updateData() {
         tabsCollectionView.reloadData()

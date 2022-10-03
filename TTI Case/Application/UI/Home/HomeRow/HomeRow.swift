@@ -15,23 +15,34 @@ class HomeRow: UITableViewCell {
     @IBOutlet weak var subreddit: UILabel!
     @IBOutlet weak var author: UILabel!
     
-    func configure(data: ChildrenData?){
-        if let imageUrl = data?.thumbnail, imageUrl.contains("redditmedia") {
-            self.thumbnail.sd_setImage(with: URL(string: imageUrl))
+    func configure(data: ChildrenData?, isComment: Bool = false){
+        if isComment == false {
+            if let imageUrl = data?.thumbnail, imageUrl.contains("redditmedia") {
+                self.thumbnail.sd_setImage(with: URL(string: imageUrl))
+            } else {
+                self.thumbnail.image = UIImage(named: "NoImage")
+            }
+            
+            if let subRedditData = data?.subreddit {
+                self.subreddit.text = subRedditData
+            } else {
+                self.subreddit.text = ""
+            }
+            
+            if let titleData = data?.title {
+                self.title.text = titleData
+            } else {
+                self.title.text = ""
+            }
         } else {
-            self.thumbnail.image = UIImage(named: "NoImage")
-        }
-        
-        if let titleData = data?.title {
-            self.title.text = titleData
-        } else {
-            self.title.text = ""
-        }
-        
-        if let subRedditData = data?.subreddit {
-            self.subreddit.text = subRedditData
-        } else {
-            self.subreddit.text = ""
+            self.thumbnail.isHidden = true
+            self.subreddit.isHidden = true
+            
+            if let titleData = data?.body {
+                self.title.text = titleData
+            } else {
+                self.title.text = ""
+            }
         }
         
         if let authorData = data?.author {

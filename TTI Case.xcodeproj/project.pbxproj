@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,9 @@
 		C26DBCCD28E948C800D5B68F /* HomeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26DBCCC28E948C800D5B68F /* HomeRow.swift */; };
 		C26DBCCF28E948D200D5B68F /* HomeRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C26DBCCE28E948D200D5B68F /* HomeRow.xib */; };
 		C26DBCD228EA7EBF00D5B68F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C26DBCD128EA7EBF00D5B68F /* SDWebImage */; };
+		C26DBCD528EA96DD00D5B68F /* CommentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C26DBCD428EA96DD00D5B68F /* CommentVC.xib */; };
+		C26DBCD728EA96EA00D5B68F /* CommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26DBCD628EA96EA00D5B68F /* CommentVC.swift */; };
+		C26DBCD928EA96F300D5B68F /* CommentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26DBCD828EA96F300D5B68F /* CommentVM.swift */; };
 		C2D89A3528E7A59500B1E41F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D89A3428E7A59500B1E41F /* AppDelegate.swift */; };
 		C2D89A3728E7A59500B1E41F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D89A3628E7A59500B1E41F /* SceneDelegate.swift */; };
 		C2D89A3E28E7A59700B1E41F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2D89A3D28E7A59700B1E41F /* Assets.xcassets */; };
@@ -47,6 +50,9 @@
 		C26DBCC928E93A8C00D5B68F /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		C26DBCCC28E948C800D5B68F /* HomeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRow.swift; sourceTree = "<group>"; };
 		C26DBCCE28E948D200D5B68F /* HomeRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeRow.xib; sourceTree = "<group>"; };
+		C26DBCD428EA96DD00D5B68F /* CommentVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentVC.xib; sourceTree = "<group>"; };
+		C26DBCD628EA96EA00D5B68F /* CommentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentVC.swift; sourceTree = "<group>"; };
+		C26DBCD828EA96F300D5B68F /* CommentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentVM.swift; sourceTree = "<group>"; };
 		C2D89A3128E7A59500B1E41F /* TTI Case.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TTI Case.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2D89A3428E7A59500B1E41F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2D89A3628E7A59500B1E41F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +107,16 @@
 				C26DBCCE28E948D200D5B68F /* HomeRow.xib */,
 			);
 			path = HomeRow;
+			sourceTree = "<group>";
+		};
+		C26DBCD328EA96CB00D5B68F /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				C26DBCD628EA96EA00D5B68F /* CommentVC.swift */,
+				C26DBCD428EA96DD00D5B68F /* CommentVC.xib */,
+				C26DBCD828EA96F300D5B68F /* CommentVM.swift */,
+			);
+			path = Comment;
 			sourceTree = "<group>";
 		};
 		C2D89A2828E7A59500B1E41F = {
@@ -163,6 +179,7 @@
 		C2D89A4B28E7A5CE00B1E41F /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C26DBCD328EA96CB00D5B68F /* Comment */,
 				C2D89A5228E7A61400B1E41F /* Home */,
 				C2D89A4C28E7A5F200B1E41F /* Splash */,
 			);
@@ -261,7 +278,7 @@
 				};
 			};
 			buildConfigurationList = C2D89A2C28E7A59500B1E41F /* Build configuration list for PBXProject "TTI Case" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -292,6 +309,7 @@
 				C26DBCCF28E948D200D5B68F /* HomeRow.xib in Resources */,
 				C2D89A3E28E7A59700B1E41F /* Assets.xcassets in Resources */,
 				C2D89A6428E7EC4E00B1E41F /* HomeVC.xib in Resources */,
+				C26DBCD528EA96DD00D5B68F /* CommentVC.xib in Resources */,
 				C26DBCC028E92C2600D5B68F /* wave-loading.json in Resources */,
 				C2D89A4F28E7A60300B1E41F /* Splash.storyboard in Resources */,
 			);
@@ -309,6 +327,7 @@
 				C2D89A5B28E7A93C00B1E41F /* NetworkMonitor.swift in Sources */,
 				C2D89A5828E7A86B00B1E41F /* HomeVM.swift in Sources */,
 				C2D89A5128E7A60C00B1E41F /* Splash.swift in Sources */,
+				C26DBCD928EA96F300D5B68F /* CommentVM.swift in Sources */,
 				C26DBCCD28E948C800D5B68F /* HomeRow.swift in Sources */,
 				C2096DD928E8DFAB00095BC6 /* HomeTabCell.swift in Sources */,
 				C2D89A6028E7AA6100B1E41F /* Logger.swift in Sources */,
@@ -316,6 +335,7 @@
 				C26DBCBE28E92BF900D5B68F /* ApplicationLoader.swift in Sources */,
 				C2096DDB28E8E02100095BC6 /* CellConfigurer.swift in Sources */,
 				C2D89A5428E7A61E00B1E41F /* HomeVC.swift in Sources */,
+				C26DBCD728EA96EA00D5B68F /* CommentVC.swift in Sources */,
 				C2096DE028E8FF3C00095BC6 /* UIView+Ext.swift in Sources */,
 				C26DBCC728E9316F00D5B68F /* RequestHandler.swift in Sources */,
 				C2D89A6628E7ECAC00B1E41F /* NavigationHandler.swift in Sources */,

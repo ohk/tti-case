@@ -50,19 +50,25 @@ class ChildrenData: Decodable {
     var title: String?
     var thumbnail: String?
     var author: String?
+    var permalink: String?
+    var body: String? // for comment
     
     enum CodingKeys: String, CodingKey {
         case subreddit = "subreddit"
         case title = "title"
         case thumbnail = "thumbnail"
         case author = "author"
+        case permalink = "permalink"
+        case body = "body"
     }
     
-    init(subreddit: String?, title: String?, thumbnail: String?, author: String?){
+    init(subreddit: String?, title: String?, thumbnail: String?, author: String?, body: String?, permalink: String?){
         self.subreddit = subreddit
         self.title = title
         self.thumbnail = thumbnail
         self.author = author
+        self.permalink = permalink
+        self.body = body
     }
 }
 
