@@ -54,6 +54,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        rowsTableView.setContentOffset(.zero, animated: false)
         viewModel.selectTab(item: HomeTabEnums.allCases[indexPath.row] )
     }
 }
@@ -70,6 +71,15 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeRow.reuseIdentifier) as! HomeRow
         cell.configure(data: data.childrenData)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let tabPath = viewModel.tab.tabPath
+        let count = viewModel.data[tabPath]?.count ?? 0
+        if indexPath.row + 10 >= count{
+            viewModel.getData()
+        }
+        Logger.shared.addLog(message: "Tab Path: \(tabPath) - Count: \(count) - Row: \(indexPath.row)")
     }
 }
 

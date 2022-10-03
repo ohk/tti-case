@@ -54,7 +54,7 @@ class HomeVM {
     var tab: HomeTabEnums = .new
     var data: [String: [Children?]] = [:]
     var delegate: HomeVMDelegate?
-    
+    var isRequestNewData = false
     init() {
         getData()
     }
@@ -75,13 +75,16 @@ extension HomeVM {
     }
     
     func getData(){
-        let tabPath = self.tab.tabPath
-        let count = self.data[tabPath]?.count ?? 0
-        RequestHandler.shared.getRequest(url: "https://www.reddit.com/r/all/\(self.tab.tabPath).json?limit=35&after=\(count)", model: ListModel.self, completion: { [weak self] response in
-            guard let self = self else { return }
-            self.data[tabPath] = (self.data[tabPath] ?? []) + (response?.data?.children ?? [])
-            self.delegate?.updateData()
-        })
-    
+        if self.isRequestNewData == false {
+            self.isRequestNewData = true
+            let tabPath = self.tab.tabPath
+            let count = self.data[tabPath]?.count ?? 0
+            RequestHandler.shared.getRequest(url: "https://www.reddit.com/r/all/\(self.tab.tabPath).json?limit=35&after=\(count)", model: ListModel.self, completion: { [weak self] response in
+                guard let self = self else { return }
+                self.data[tabPath] = (self.data[tabPath] ?? []) + (response?.data?.children ?? [])
+                self.delegate?.updateData()
+                self.isRequestNewData = false
+            })
+        }
     }
 }
